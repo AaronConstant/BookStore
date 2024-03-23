@@ -6,23 +6,23 @@ const bookForm = document.getElementsByClassName('form');
 
 
 addbook.addEventListener('click', (e) => {
-    addToList();
-    
     e.preventDefault();
     
-
-    for(const formInputInfo of formInputs) {
+    addToList();
+    
+    for(const formInputInfo of formInputs[0]) {
         if(!formInputInfo === stockButton) {
-            formInputInfo.value = '';
+        formInputInfo.value = '';
         }
     } 
-
 })
+
 
 const addToList = () => {
     
     const newEntry = document.createElement('li');
     newEntry.setAttribute('class', 'book');
+
         const image = document.createElement('img');
         newEntry.appendChild(image);
         image.setAttribute('class','book__image');
@@ -66,15 +66,18 @@ const addToList = () => {
         removalButton.setAttribute('class', 'book__removalButton');
         removalButton.innerText = 'Remove';
     
-    bookList.appendChild(newEntry);
-
-    // for(const formInputInfo of formInputs[0]) {
-    //     if(!formInputInfo === stockButton) {
-    //         formInputInfo.value = '';
-    //     }
-    // } 
-}
-
+        bookList.appendChild(newEntry);
+        
+        removalButton.addEventListener('click', () => {
+            newEntry.remove();   
+        })
+        // for(const formInputInfo of formInputs[0]) {
+            //     if(!formInputInfo === stockButton) {
+                //         formInputInfo.value = '';
+                //     }
+                // } 
+            }
+            
 
 
 
