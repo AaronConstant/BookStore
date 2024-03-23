@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/styling.css">
+</head>
+<body>
+    <main class="full-layout">
+        <aside class="website-title">Booktory</aside>
+        <ul id="bookstore"></ul>
+
+        <form class="form" action="" method="post" type="submit" >
+            <input class="form__title" type="text" placeholder="Title" name="title" required >
+            <input class="form__author" type="text" placeholder="Author" name="author"  required>
+            <input class="form__url" type="url" placeholder="Image URL" name="URL-link">
+            <input class="form__price" type="text" placeholder="Price" name="price" required>
+            
+            <select class="'form-select" name="stockStatus" id="stockselection">
+                <optgroup>
+                    <option value="inStock">In Stock</option>
+                    <option value="outStock">Out Of Stock</option>
+                </optgroup>
+            </select>
+
+        <button class="add-book">Add Book</button>
+        </form>
+    </main>
+
+
+<script src="bookstore.js"></script>
+</body>
+</html>
