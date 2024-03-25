@@ -9,28 +9,23 @@ addbook.addEventListener('click', (e) => {
     e.preventDefault();
     
     addToList();
-    
-    for(const formInputInfo of formInputs[0]) {
-        if(!formInputInfo === stockButton) {
-        formInputInfo.value = '';
-        }
-    } 
-})
+    clearForm();
 
+});
+
+// creates the the books after form is completed and adds to List of Books. 
 
 const addToList = () => {
     
     const newEntry = document.createElement('li');
     newEntry.setAttribute('class', 'book');
+    newEntry.style['background'] = 'linear-gradient(rgb(92, 92, 216), skyblue)';
 
         const image = document.createElement('img');
         newEntry.appendChild(image);
         image.setAttribute('class','book__image');
-        if(formInputs[0][2].value === '') {
-            image.setAttribute('src', 'https://cdn.pixabay.com/photo/2015/12/19/20/32/paper-1100254_640.jpg')
-        } else {
-            image.setAttribute('src', formInputs[0][2].value)
-        }
+
+        formInputs[0][2].value === '' ? image.setAttribute('src', 'https://cdn.pixabay.com/photo/2015/12/19/20/32/paper-1100254_640.jpg') : image.setAttribute('src', formInputs[0][2].value);
 
         const descriptionOfBook = document.createElement('div');
             newEntry.appendChild(descriptionOfBook);
@@ -71,12 +66,18 @@ const addToList = () => {
         removalButton.addEventListener('click', () => {
             newEntry.remove();   
         })
-        // for(const formInputInfo of formInputs[0]) {
-            //     if(!formInputInfo === stockButton) {
-                //         formInputInfo.value = '';
-                //     }
-                // } 
-            }
+
+}
+// Clears the form after submission
+
+const clearForm = ()=> {
+    for(let i = 0; i < formInputs[0].length - 2; i++) {
+        console.log(formInputs[0][i]);
+
+        formInputs[0][i].value = '';
+        
+    }
+}
             
 
 
